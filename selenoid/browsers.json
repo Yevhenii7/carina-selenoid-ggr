@@ -1,0 +1,23 @@
+{
+  "chrome": {
+    "default": "121.0",
+    "versions": {
+      "121.0": {
+        "image": "selenoid/vnc_chrome:121.0",
+        "port": "4444",
+        "enableVNC": true,
+        "enableVideo": true
+      }
+    }
+  },
+  "firefox": {
+    "default": "88.0",
+    "versions": {
+      "88.0": {
+        "image": "selenoid/firefox:88.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+
+  selenoid:
+    network_mode: bridge
+    container_name: selenoid
+    image: "aerokube/selenoid:latest"
+    ports:
+      - "4444:4444"
+    volumes:
+      - "/Users/yevhenii/Desktop/carina-demo/selenoid/:/etc/selenoid"
+      - "/Users/yevhenii/Desktop/carina-demo/selenoid/video:/opt/selenoid/video"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/yevhenii/Desktop/carina-demo/selenoid/video
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
+
+  selenoid-ui:
+    network_mode: bridge
+    container_name: selenoid-ui
+    image: "aerokube/selenoid-ui"
+    volumes:
+      - "$PWD/ggr:/etc/grid-router"
+    ports:
+      - "8090:8080"
+    links:
+      - selenoid
+    command:
+      ["--selenoid-uri", "http://selenoid:4444"]
+
+  ggr:
+    container_name: ggr
+    image: "aerokube/ggr:latest-release"
+    volumes:
+      - "$PWD/ggr:/etc/grid-router"
+    ports:
+      - "4445:4444"
+#    environment:
+#          - GRID_HUB_URL=http://localhost:4444/wd/hub
+
+  ggr-ui:
+    container_name: ggr-ui
+    image: "aerokube/ggr-ui:latest"
+    volumes:
+      - "$PWD/ggr:/etc/grid-router"
+    ports:
+      - "8888:8888"
+    depends_on:
+      - ggr
+
+networks:
+  selenoid:
+    external: true
