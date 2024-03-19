@@ -35,8 +35,8 @@ services:
       - "$PWD/ggr:/etc/grid-router"
     ports:
       - "4445:4444"
-#    environment:
-#          - GRID_HUB_URL=http://localhost:4444/wd/hub
+    environment:
+          - GRID_HUB_URL=http://localhost:4444/wd/hub
 
   ggr-ui:
     container_name: ggr-ui
