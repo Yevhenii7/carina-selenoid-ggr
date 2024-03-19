@@ -8,8 +8,8 @@ services:
     ports:
       - "4444:4444"
     volumes:
-      - "/Users/yevhenii/Desktop/carina-demo/selenoid/:/etc/selenoid"
-      - "/Users/yevhenii/Desktop/carina-demo/selenoid/video:/opt/selenoid/video"
+      - "/Users/yevhenii/Desktop/carina-selenoid-ggr/selenoid/:/etc/selenoid"
+      - "/Users/yevhenii/Desktop/carina-selenoid-ggr/selenoid/video:/opt/selenoid/video"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/yevhenii/Desktop/carina-demo/selenoid/video
