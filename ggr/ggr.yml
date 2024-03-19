@@ -13,4 +13,4 @@ default:
     host: "http://localhost:4444/wd/hub"
     capabilityMatcher: "browserName:chrome,version:121.0|browserName:firefox,version:88.0"
     detectContainers: true
-  quota: "/etc/grid-router/quota/user.xml"
+  quota: "/etc/grid-router/quota/username.xml"
