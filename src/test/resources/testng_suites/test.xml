@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite verbose="1" name="Regression tests for site" parallel="methods" thread-count="8">
 
-	<parameter name="suiteOwner" value="ssmus"/>
+	<parameter name="suiteOwner" value="ykolchyba"/>
 	<parameter name="provider" value="selenium"/>
 	<parameter name="jenkinsJobName" value="Web-Regression-Tests"/>
 	<parameter name="jenkinsJobType" value="web"/>
