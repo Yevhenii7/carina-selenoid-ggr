@@ -1,16 +1,16 @@
 default:
-  users: "/etc/grid-router/users.htpasswd"
+  users: "ggr/users.htpasswd"
   hub:
     timeout: 60s
     newSessionAttemptTimeout: 30s
     capabilityMatcher: "browserName:chrome,version:121.0|browserName:firefox,version:88.0"
   grid:
-    users: "/etc/grid-router/users.htpasswd"
+    users: "ggr/users.htpasswd"
     sessionTimeout: 1800s
     capabilityMatcher: "browserName:chrome,version:121.0|browserName:firefox,version:88.0"
   docker:
-    users: "/etc/grid-router/users.htpasswd"
+    users: "ggr/users.htpasswd"
     host: "http://localhost:4444/wd/hub"
     capabilityMatcher: "browserName:chrome,version:121.0|browserName:firefox,version:88.0"
     detectContainers: true
-  quota: "/etc/grid-router/quota/username.xml"
+  quota: "ggr/quota/username.xml"
