@@ -12,7 +12,7 @@ services:
       - "/Users/yevhenii/Desktop/carina-selenoid-ggr/selenoid/video:/opt/selenoid/video"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/yevhenii/Desktop/carina-demo/selenoid/video
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/yevhenii/Desktop/carina-selenoid-ggr/selenoid/video
     command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
 
   selenoid-ui:
