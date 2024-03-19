@@ -2,14 +2,14 @@
     <browser name="chrome" defaultVersion="121.0" defaultPlatform="LINUX">
         <version number="121.0">
             <region name="asm2">
-                <host name="localhost" port="4444" count="1"/>
+                <host name="host.docker.internal" port="4444" count="1"/>
             </region>
         </version>
     </browser>
     <browser name="firefox" defaultVersion="88.0" defaultPlatform="LINUX">
         <version number="88.0">
             <region name="asm3">
-                <host name="localhost" port="4444" count="1"/>
+                <host name="host.docker.internal" port="4444" count="1"/>
             </region>
         </version>
     </browser>
