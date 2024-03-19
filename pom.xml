@@ -8,7 +8,7 @@
 	<artifactId>carina-selenoid-ggr</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
-	<name>carina ggr</name>
+	<name>Carina Demo</name>
 	<url>http://www.zebrunner.com/</url>
 
 	<properties>
