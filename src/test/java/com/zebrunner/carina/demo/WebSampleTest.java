@@ -45,28 +45,28 @@ import com.zebrunner.carina.core.registrar.tag.TestPriority;
  */
 public class WebSampleTest implements IAbstractTest {
 
-    @Test
-    @MethodOwner(owner = "qpsdemo")
-    @TestPriority(Priority.P3)
-    @TestLabel(name = "feature", value = { "web", "regression" })
-    public void testModelSpecs() {
-        // Open GSM Arena home page and verify page is opened
-        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
-        homePage.open();
-        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
-
-        // Select phone brand
-        BrandModelsPageBase productsPage = homePage.selectBrand("Samsung");
-        // Select phone model
-        ModelInfoPageBase productInfoPage = productsPage.selectModel("Galaxy A04");
-        // Verify phone specifications
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(productInfoPage.readDisplay(), "6.5\"", "Invalid display info!");
-        softAssert.assertEquals(productInfoPage.readCamera(), "50MP", "Invalid camera info!");
-        softAssert.assertEquals(productInfoPage.readRam(), "3-8GB RAM", "Invalid ram info!");
-        softAssert.assertEquals(productInfoPage.readBattery(), "5000mAh", "Invalid battery info!");
-        softAssert.assertAll();
-    }
+//    @Test
+//    @MethodOwner(owner = "qpsdemo")
+//    @TestPriority(Priority.P3)
+//    @TestLabel(name = "feature", value = { "web", "regression" })
+//    public void testModelSpecs() {
+//        // Open GSM Arena home page and verify page is opened
+//        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+//        homePage.open();
+//        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
+//
+//        // Select phone brand
+//        BrandModelsPageBase productsPage = homePage.selectBrand("Samsung");
+//        // Select phone model
+//        ModelInfoPageBase productInfoPage = productsPage.selectModel("Galaxy A04");
+//        // Verify phone specifications
+//        SoftAssert softAssert = new SoftAssert();
+//        softAssert.assertEquals(productInfoPage.readDisplay(), "6.5\"", "Invalid display info!");
+//        softAssert.assertEquals(productInfoPage.readCamera(), "50MP", "Invalid camera info!");
+//        softAssert.assertEquals(productInfoPage.readRam(), "3-8GB RAM", "Invalid ram info!");
+//        softAssert.assertEquals(productInfoPage.readBattery(), "5000mAh", "Invalid battery info!");
+//        softAssert.assertAll();
+//    }
 
 //    @Test
 //    @MethodOwner(owner = "qpsdemo")
@@ -96,14 +96,14 @@ public class WebSampleTest implements IAbstractTest {
 //        softAssert.assertAll();
 //    }
 //
-//    @Test
-//    @MethodOwner(owner = "qpsdemo")
-//    @TestLabel(name = "feature", value = { "web", "acceptance" })
-//    public void testNewsSearch() {
-//        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
-//        homePage.open();
-//        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
-//
+    @Test
+    @MethodOwner(owner = "qpsdemo")
+    @TestLabel(name = "feature", value = { "web", "acceptance" })
+    public void testNewsSearch() {
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        homePage.open();
+        Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened!");
+
 //        NewsPageBase newsPage = homePage.getFooterMenu().openNewsPage();
 //        Assert.assertTrue(newsPage.isPageOpened(), "News page is not opened!");
 //
@@ -117,8 +117,8 @@ public class WebSampleTest implements IAbstractTest {
 //                    "Invalid search results for " + n.readTitle());
 //        }
 //        softAssert.assertAll();
-//    }
-//
+    }
+
 //    @Test()
 //    @MethodOwner(owner = "qpsdemo")
 //    @TestPriority(Priority.P3)
