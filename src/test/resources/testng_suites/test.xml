@@ -1,22 +1,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite verbose="1" name="Carina API Demo Tests" parallel="methods">
+<suite verbose="1" name="Regression tests for site" parallel="methods" thread-count="8">
 
-	<parameter name="suiteOwner" value="qpsdemo"/>
-	<parameter name="jenkinsJobName" value="Api-Demo-Test"/>
-	<parameter name="jenkinsJobType" value="api"/>
+	<parameter name="suiteOwner" value="ssmus"/>
+	<parameter name="provider" value="selenium"/>
+	<parameter name="jenkinsJobName" value="Web-Regression-Tests"/>
+	<parameter name="jenkinsJobType" value="web"/>
 	<parameter name="jenkinsEnvironments" value="DEMO"/>
 	<parameter name="jenkinsEmail" value="kolchiba777@gmail.com"/>
-  
-	<parameter name="jenkinsRegressionPipeline" value="api_regression, full_regression"/>
-
-	<parameter name="jenkinsRegressionMatrix_full_regression" value="browser:chrome; browser:firefox"/>
-	<parameter name="jenkinsJobExecutionOrder" value="1"/>
-	<parameter name="jenkinsJobExecutionMode" value="continue"/>
 	<parameter name="jenkinsAutoScreenshot" value="true"/>
 
-	<test name="User API tests">
+	<test name="Regression tests">
 		<classes>
-			<class name="com.zebrunner.carina.demo.APISampleTest" />
+			<class name="com.zebrunner.carina.demo.WebSampleTest">
+			</class>
 		</classes>
 	</test>
 
