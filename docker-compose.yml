@@ -1,9 +1,9 @@
-version: '3.8'
+version: '3'
 networks:
   selenoid:
     external: true
-services:
 
+services:
   selenoid:
     container_name: selenoid
     image: "aerokube/selenoid:latest"
@@ -24,12 +24,12 @@ services:
     image: "aerokube/selenoid-ui"
     networks:
       selenoid: null
+    links:
+        - selenoid
     volumes:
       - "$PWD/ggr:/etc/grid-router"
     ports:
       - "8090:8080"
-    links:
-      - selenoid
     command:
       ["--selenoid-uri", "http://selenoid:4444"]
 
@@ -40,6 +40,8 @@ services:
       - selenoid
     volumes:
       - "$PWD/ggr:/etc/grid-router"
+    external_links:
+      - selenoid
     ports:
       - "4445:4444"
 
@@ -50,6 +52,8 @@ services:
       - selenoid
     volumes:
       - "$PWD/ggr:/etc/grid-router"
+    external_links:
+          - selenoid
     ports:
       - "8888:8888"
     depends_on:
