@@ -10,7 +10,7 @@ default:
     capabilityMatcher: "browserName:chrome,version:121.0|browserName:firefox,version:88.0"
   docker:
     users: "ggr/users.htpasswd"
-    host: "http://localhost:4444/wd/hub"
+    host: "http://localhost:4444"
     capabilityMatcher: "browserName:chrome,version:121.0|browserName:firefox,version:88.0"
     detectContainers: true
   quota: "ggr/quota/username.xml"
