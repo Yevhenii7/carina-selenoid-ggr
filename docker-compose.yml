@@ -1,14 +1,10 @@
-version: '3'
-networks:
-  selenoid:
-    external: true
-
+version: '3.8'
 services:
+
   selenoid:
+    network_mode: bridge
     container_name: selenoid
     image: "aerokube/selenoid:latest"
-    networks:
-      selenoid: null
     ports:
       - "4444:4444"
     volumes:
@@ -20,41 +16,36 @@ services:
     command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video"]
 
   selenoid-ui:
+    network_mode: bridge
     container_name: selenoid-ui
     image: "aerokube/selenoid-ui"
-    networks:
-      selenoid: null
-    links:
-        - selenoid
     volumes:
       - "$PWD/ggr:/etc/grid-router"
     ports:
       - "8090:8080"
+    links:
+      - selenoid
     command:
       ["--selenoid-uri", "http://selenoid:4444"]
 
   ggr:
     container_name: ggr
     image: "aerokube/ggr:latest-release"
-    networks:
-      - selenoid
     volumes:
       - "$PWD/ggr:/etc/grid-router"
-    external_links:
-      - selenoid
     ports:
       - "4445:4444"
 
   ggr-ui:
     container_name: ggr-ui
     image: "aerokube/ggr-ui:latest"
-    networks:
-      - selenoid
     volumes:
       - "$PWD/ggr:/etc/grid-router"
-    external_links:
-          - selenoid
     ports:
       - "8888:8888"
     depends_on:
       - ggr
+
+networks:
+  selenoid:
+    external: true
